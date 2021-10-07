@@ -1,0 +1,53 @@
+<HTML>
+<TITLE>Calendar of Events</TITLE>
+<BODY BGCOLOR=white>
+
+<H2>The event you selected:</H2>
+<HR>
+ 
+<@
+
+	date = getValue( "date" );
+	title = getValue( "title" );
+
+	if( date == NULL || title == NULL ) {
+		write( "<H3> An error occured. </H3>" );
+		exit();
+	}
+
+	db1 = 0;
+	db1 = connectDB( "DBQ=c:\\inetpub\\wwwroot\\slipscript\\calendar\\calendar.mdb;DefaultDir=c:\\inetpub\\wwwroot\\slipscript\\calendar;Driver={Microsoft Access Driver (*.mdb)};DriverId=25;FIL=MS Access;" );
+
+	sql = "SELECT ALL * FROM [Current Calendar] WHERE Date = #"+date+"#";
+	queryDB( db1, sql );
+	
+	write("<B>Title: </B>" + getValueDB( db1, "Title", 1 ) + "<BR><BR>" );
+	write("<B>Date: </B>" + date + "<BR><BR>" );
+	write("<B>Description: </B>" + getValueDB( db1, "Description", 1 ) );
+
+
+
+@>
+
+<BR><BR><BR><BR>
+[<A HREF="current.events.slip">Go Back</A>]
+<BR><BR><BR><BR><BR><BR>
+
+<center><FONT SIZE=2>
+[<a href="/sscripts/calendar/current.events.slip">Back</a>]
+[<a href="/">Home</a>]
+[<a href="/lf/col_home.html">MEEP</a>]
+[<a href="/lf/courses.htm">Courses</a>]
+[<a href="/lf/compute.htm">Computers</a>]
+[<a href="/lf/direct.htm">Directory</a>]
+[<a href="/lf/lf_search.htm">Search</a>]
+[<a href="/lf/feedback.htm">Feedback</a>]</center>
+<p>
+<hr>
+
+<p>
+<DIV ALIGN=RIGHT><i>Last updated 
+<@ write( getDateTime( "%b %d, %Y" ) ); @></i></DIV>
+</FONT>
+</BODY>
+</HTML>

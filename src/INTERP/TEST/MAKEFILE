@@ -1,0 +1,22 @@
+# Makefile for interp.a
+# $Id: Makefile, 1996/09/02 04:23:23 David Weaver $
+
+INC_DIR = ../../include
+CC= gcc -I$(INC_DIR) 
+CFLAGS= -g -Wall #-DUNIX -DUPLOADDIR=/tmp
+LIB_DIR = ../../lib
+
+OB_LIST = bobcom.c bobodb.c execute.c osint.c \
+	    bobdbg.c bobscn.c linebuf.c packet.c \
+	    boberr.c dfile.c objects.c streams.c
+
+all: interp.a
+
+interp.a: $(OB_LIST)
+	ar cr interp.a $(OB_LIST)
+	mv interp.a $(LIB_DIR)
+
+install:
+	mv interp.a $(LIB_DIR)
+clean:
+	rm -f *.o interp.a

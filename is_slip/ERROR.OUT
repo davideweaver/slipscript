@@ -1,0 +1,33 @@
+###   BEGINNING DEBUG SESSION
+###   DATE: 11/09/96
+###   TIME: 22:33:43
+
+
+# ENTERING FUNCTION : start_parsing
+
+# INTEGER: len = 309
+
+# CHAR *: buffer
+# = <HTML>
+
+<HEAD>
+<TITLE>Welcome</TITLE>
+</HEAD>
+<BODY bgcolor="#000000" text="#ffa500" link="#ff0000" vlink="#ff0000" alink="#ff0000">
+
+SlipScript v1.0c for Microsoft IIS, Copyright (c) 1996, David Weaver
+SlipScript v1.0c for Microsoft IIS, Copyright (c) 1996, David Weaver
+SlipScript v1.0c for Microsoft IIS, Copyright (c) 1996, David Weaver
+SlipScript v1.0c for Microsoft IIS, Copyright (c) 1996, David Weaver
+SlipScript v1.0c for Microsoft IIS, Copyright (c) 1996, David Weaver
+SlipScript v1.0c for Microsoft IIS, Copyright (c) 1996, David Weaver
+SlipScript v1.0c for Microsoft IIS, Copyright (c) 1996, David Weaver
+SlipScript v1.0c for Microsoft IIS, Copyright (c) 1996, David Weaver
+<BR><BR>My name is dave weaver
+</HTML>
+
+
+###   ENDING DEBUG SESSION
+###   DATE: 11/09/96
+###   TIME: 22:33:43
+

@@ -1,0 +1,57 @@
+<HTML>
+<TITLE>Edit Current Events</TITLE>
+<BODY BGCOLOR=WHITE>
+
+<H2>Edit LF Current Events</H2>
+[<A HREF=#add>Add an event</A>][<A HREF=#delete>Delete an event</A>][<A HREF=current.events.slip>Done</A>]<BR>
+<BR>
+Below is a list of current events:<BR><BR>
+<TABLE BORDER=1 CELLPADDING=10 CELLSPACING=0>
+
+<@
+	log("Calendar Accessed");
+	
+	db1 = connectDB( "DBQ=c:\\inetpub\\wwwroot\\slipscript\\calendar\\calendar.mdb;DefaultDir=c:\\inetpub\\wwwroot\\slipscript\\calendar;Driver={Microsoft Access Driver (*.mdb)};DriverId=25;FIL=MS Access;" );
+	queryDB(db1, "SELECT ALL * FROM [Current Calendar]");
+	format = "<TR VALIGN=TOP><TD BGCOLOR=#dddddd><I>%Date%</I></TD>
+		<TD BGCOLOR=#ddddff WIDTH=250><B>%Title%</B><BR>
+		%Description%<BR></TD></TR>
+		";
+	rows = 10;
+	if( getRowsDB(db1) != 0 )
+		reportDB(db1, format, rows);
+	else
+		write("<B>There are no events scheduled at this time.</B>");
+@>
+
+</TABLE>
+<BR><BR>
+
+<HR>
+<A NAME=add>
+<H3>Add an event</H3>
+<FORM action="insert.event.slip">
+<P>
+Enter a title of the event: (no apostrophes or quotes)<BR><INPUT NAME=title >
+<P>
+Enter a date: (i.e. 3/15/96)<BR><INPUT NAME=date>
+<P>
+Enter a description:<BR>
+<TEXTAREA NAME="description" ROWS=10 COLS=50 SIZE=254 WRAP=HARD>
+</TEXTAREA>
+<P>
+<INPUT type=submit value="Add Event" > <INPUT TYPE="RESET">
+</FORM>
+
+<HR>
+<A NAME=delete>
+<H3>Delete an event</H3>
+<FORM action="/sscripts/calendar/delete.event.slip">
+<P>
+Enter a title of the event: (shown in bold above)<BR>
+<INPUT NAME="title" >
+
+<P>
+<INPUT type=submit value="Delete Event" > <INPUT TYPE="RESET">
+</FORM>
+</HTML>

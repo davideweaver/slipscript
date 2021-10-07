@@ -1,0 +1,20 @@
+<HTML>
+
+<TITLE>Running Services</TITLE>
+<BODY BGCOLOR=white>
+
+
+<XMP>
+<@
+
+	// write some text and version string to screen
+	system( "net config workstation > c:\\temp\\services" );
+	
+	// show the recently created file
+	insertFile("c:\\temp\\services");
+
+@>
+</XMP>
+
+</BODY>
+</HTML>

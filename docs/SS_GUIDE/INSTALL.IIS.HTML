@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+   <TITLE>Installing SlipScript on Microsoft IIS</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0b6Gold (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="David Weaver">
+</HEAD>
+<BODY BGCOLOR=WHITE>
+<H3>Installing SlipScript on Microsoft IIS</H3>
+<HR>
+For this example installation, we are assuming the Website webserver is installed in <I>c:\website</I>.
+
+<OL>
+	<LI>Download SlipScript to a temporary directory.</LI>
+	<LI>Unzip the file you just downloaded.</LI>
+	<LI>Create a directory to hold the IS_SLIP.DLL (for this example we will make it <I>c:\inetsrv\sscripts</I>). Also, the 
+	directory must have Execute permissions</LI>
+	<LI>Move IS_SLIP.DLL to the directory you just created.</LI> 
+	<LI>In the registry under <B>w3svc\parameters\Script Map</B> create the following value:
+		<B>.slip=c:\inetsrv\is_slip.dll</B> </LI>
+	<LI>Stop and Restart the web server in the IIS Manager.</LI>
+	<LI>The scripts you run must be in a virtual directory with Execute permission.</LI>
+</OL>
+
+</BODY>
+</HTML>

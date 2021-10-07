@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+   <TITLE>Slipscript Tutorial</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0b6Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<H1>SlipScript Tutorial</H1>
+
+<P>
+<HR></P>
+
+
+<P><A NAME="usage"></A><B><FONT SIZE=+1>Usage</FONT></B></P>
+
+<P><B><I>Associating the SlipScript file extension with the SlipScript
+executable:<BR>
+</I></B>To execute a SlipScript file you need to associate a file extension
+with the SlipScript executable, so when the server is asked for a file
+that has a SlipScript extension (.SLIP or whatever you choose) it runs
+the SlipScript executable with the name of the SlipScript file as the first
+parameter.</P>
+
+<P>First, create an html page with an embedded SlipScript as shown here:</P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">&lt;HTML&gt;<BR>
+&lt;TITLE&gt;SlipScript Test&lt;/TITLE&gt;<BR>
+&lt;SCRIPT&nbsp;LANGUAGE=SLIPSCRIPT&gt;</FONT></TT></P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">a = &quot;HelloWorld&quot;;<BR>
+write(a + &quot;\n&quot;);</FONT></TT></P>
+</UL>
+
+<P><TT><FONT COLOR="#616161">&lt;/SCRIPT&gt;<BR>
+&lt;/HTML&gt;</FONT></TT></P>
+</UL>
+
+<P><I>NOTE: This is just a basic script which will print the line &quot;HelloWorld&quot;
+on the webpage. You can see more complex examples of scripts in our example
+pages. Also, the extension of the file does not have to be </I><TT>.slip</TT><I>,
+it can be anything.</I></P>
+
+<P>Next, put this file in any directory on your computer. Let's say we
+put it in our web doucument root directory.</P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">C:\TEMP&gt; copy test.slip c:\public_html</FONT></TT></P>
+</UL>
+
+<P>Now you can create a &lt;FORM&gt; to call this page.</P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">&lt;FORM ACTION=</FONT><FONT COLOR="#0000FF">/public_html/test.slip</FONT><FONT COLOR="#616161">
+METHOD=post&gt;<BR>
+&lt;INPUT TYPE=text NAME=name&gt;<BR>
+&lt;INPUT&nbsp;TYPE=text NAME=email&gt;<BR>
+&lt;INPUT&nbsp;TYPE=submit&gt;<BR>
+&lt;/FORM&gt;</FONT></TT></P>
+</UL>
+
+<P>Or you can call this file directly, by entering the following line in
+you browser:</P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">http://www.yer_server.com</FONT><FONT COLOR="#0000FF">/public_html/test.slip</FONT><FONT COLOR="#616161">?</FONT><FONT COLOR="#0000FF">email</FONT><FONT COLOR="#616161">=</FONT><FONT COLOR="#0000FF">myname@here.com</FONT></TT></P>
+</UL>
+
+<P>Or you can create a link from another page, like:</P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">&lt;A&nbsp;HREF=&quot;</FONT><FONT COLOR="#0000FF">/public_html/test.slip</FONT><FONT COLOR="#616161">?</FONT><FONT COLOR="#0000FF">email</FONT><FONT COLOR="#616161">=</FONT><FONT COLOR="#0000FF">myname@here.com</FONT><FONT COLOR="#616161">&quot;&gt;Test&lt;/A&gt;</FONT></TT></P>
+</UL>
+
+
+
+
+<P><B><FONT SIZE=+1>Use of Objects<A NAME="Objects"></A>, Methods, Data
+members and Inheritence</FONT></B></P>
+
+<P>SlipScript is an object-oriented language. By using libraries, you can
+define objects and its data and methods in a seperate file and by using
+the <TT>include() </TT>function, use the objects in your programs. Below
+is a short example of using objects with SlipScript:</P>
+
+<UL>
+<P><TT><FONT COLOR="#008000">// define an object called URL which has one
+data member called ip<BR>
+// ip can be accessed by calling URL's methods<BR>
+</FONT><FONT COLOR="#616161">URL = new(Object);</FONT> <FONT COLOR="#008000">//
+create URL from a base object<BR>
+</FONT><FONT COLOR="#616161">define [URL setip addr] { URL.ip = addr; }</FONT>
+<FONT COLOR="#008000">// set method for URL&nbsp;object<BR>
+</FONT><FONT COLOR="#616161">define [URL get] { return URL.ip; }</FONT>
+<FONT COLOR="#008000">// get method for URL object</FONT></TT></P>
+
+<P><TT><FONT COLOR="#008000">// define an object called LINK which inherits
+the properties of URL<BR>
+// plus extends it with its own data member called name and more<BR>
+// methods for accessing the data<BR>
+</FONT><FONT COLOR="#616161">LINK = new(URL); // create LINK from URL<BR>
+define [LINK setname nam] { LINK.name = nam; }</FONT> <FONT COLOR="#008000">//
+init method for LINK<BR>
+</FONT><FONT COLOR="#616161">define [LINK print] { write(&quot;&lt;A&nbsp;HREF=&quot;+LINK.ip+&quot;&gt;&quot;+LINK.name+&quot;&lt;/A&gt;&quot;);
+}</FONT></TT></P>
+
+<P><TT><FONT COLOR="#008000">// now use these new objects<BR>
+</FONT><FONT COLOR="#616161">link = new(LINK);<BR>
+link.setip(&quot;http://www.newsite.com&quot;);<BR>
+link.setname(&quot;New Site&quot;);<BR>
+write(&quot;Here is a new site:&lt;BR&gt;\n&quot;);<BR>
+link.print();</FONT></TT></P>
+</UL>
+
+<P>Now, if you place this script inside &lt;SCRIPT&gt; tags (make sure
+you set LANGUAGE=SLIPSCRIPT) and call the SlipScript executable with this
+file, the output will look like this. <A HREF="../../cgi-bin/slipscript.exe?template=c:/internet/public_html/depts/website/slipscript/object.html">Click
+here</A>.</P>
+
+<P>That seems like a lot of work to just print out a link, but it was just
+to show an example. I am working on a complex example to demonstrate the
+usefulness of objects that should be done soon. But even if you never directly
+use objects to this extent in your scripts they can still be useful. See
+the next example.</P>
+
+<P><B><I>User Information Example<BR>
+</I></B>This example will give you an idea of how to store user information
+of the person using your website. To set things up, this example script
+is embedded in an HTML page that has just been called from another HTML
+page with a form on it. The form looked basically like this:</P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">&lt;FORM ACTION=/cgi-bin/slipscript.exe METHOD=post&gt;<BR>
+&lt;INPUT&nbsp;TYPE=hidden NAME=template VALUE=c:\public_html\read_info.html&gt;<BR>
+&lt;INPUT TYPE=text NAME=name&gt;<BR>
+&lt;INPUT&nbsp;TYPE=text NAME=email&gt;<BR>
+&lt;INPUT&nbsp;TYPE=submit&gt;<BR>
+&lt;/FORM&gt;</FONT></TT></P>
+</UL>
+
+<P>The form asked for some basic info about the user (i.e. name, email,
+etc.), and instead of calling a script from the page it called the SlipoScript
+executable with this example page as the 'template' variable. Now, here
+is the example page that reads the user info and stores it:</P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">&lt;HTML&gt;<BR>
+&lt;SCRIPT LANGUAGE=SLIPSCRIPT&gt;</FONT></TT></P>
+</UL>
+
+<UL>
+<UL>
+<P><TT><FONT COLOR="#616161">user = new(Object);</FONT> <FONT COLOR="#008000">//
+this creates an object called user<BR>
+</FONT><FONT COLOR="#616161">user.name = getValue(&quot;name&quot;);</FONT>
+<FONT COLOR="#008000">// and initializes some data members<BR>
+</FONT><FONT COLOR="#616161">user.email = getValue(&quot;email&quot;);</FONT></TT></P>
+
+<P><TT><FONT COLOR="#008000">// check if email address is valid (or whatever)<BR>
+</FONT><FONT COLOR="#616161">if(check_email(user.email)) {</FONT> <FONT COLOR="#008000">//
+not a real function, only an example</FONT></TT></P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">write(&quot;&lt;H3&gt;Info is OK&lt;/H3&gt;&quot;);<BR>
+</FONT><FONT COLOR="#008000">// now write the user object to a file called
+'username'.dat<BR>
+</FONT><FONT COLOR="#616161">stream = fopen(user.name+&quot;.dat&quot;,
+&quot;w&quot;);<BR>
+store(user,stream);<BR>
+fclose(stream);</FONT></TT></P>
+
+<P><TT><FONT COLOR="#008000">// you need someway to pass the name of the
+file to the<BR>
+// next page<BR>
+</FONT><FONT COLOR="#616161">write(&quot;&lt;FORM ACTION=/cgi-bin/slipscript.exe
+METHOD=post&gt;&quot;);<BR>
+write(&quot;&lt;INPUT&nbsp;TYPE=hidden NAME=template VALUE=c:\public_html\next.html&gt;&quot;);<BR>
+write(&quot;&lt;INPUT&nbsp;TYPE=hidden NAME=filename VALUE=&quot;+user.name+&quot;.dat&quot;+&quot;&gt;&quot;);<BR>
+write(&quot;&lt;INPUT&nbsp;TYPE=submit&gt; &lt;/FORM&gt;&quot;);</FONT></TT></P>
+</UL>
+
+<P><TT><FONT COLOR="#616161">} else<BR>
+write(&quot;&lt;H3&gt;Incorrect Info&lt;/H3&gt; &lt;A HREF=/prev.html&gt;Try
+again&lt;/A&gt;&quot;);</FONT></TT></P>
+</UL>
+
+<P><TT><FONT COLOR="#616161">&lt;/SCRIPT&gt;<BR>
+&lt;/HTML&gt;</FONT></TT></P>
+</UL>
+
+<P>On the next page you read in the value for filename, then open the file
+and use the <TT>retrieve() </TT>function to read in the user info like
+below:</P>
+
+<UL>
+<P><TT><FONT COLOR="#616161">filename = getValue(&quot;filename&quot;);<BR>
+stream = fopen(filename, &quot;r&quot;);<BR>
+if(stream == NULL) { write(&quot;Bad filename&quot;); exit(); }<BR>
+user = new(Object);<BR>
+user = retrieve(stream);<BR>
+write(user.name+&quot;\n&quot;);<BR>
+write(user.email+&quot;\n&quot;);</FONT></TT></P>
+</UL>
+
+<P>I only created a simple object called user but it could have been a
+very complex object with a lot of data members and methods.</P>
+
+<P><B><FONT SIZE=+1>The End (for now)</FONT></B></P>
+
+<P><BR>
+</P>
+
+</BODY>
+</HTML>
+

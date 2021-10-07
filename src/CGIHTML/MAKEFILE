@@ -1,0 +1,18 @@
+# Makefile for cgihtml.a
+# $Id: Makefile, 1996/08/11 04:23:23 David Weaver $
+
+INC_DIR = /~deweaver/program/include
+CC= gcc -I$(INC_DIR) 
+CFLAGS= -g -Wall #-DUNIX -DUPLOADDIR=/tmp
+LIB_DIR = ../../lib
+
+all: cgihtml.a
+
+cgihtml.a: cgi-lib.o cgi-llist.o html-lib.o string-lib.o
+	ar cr cgihtml.a cgi-lib.o cgi-llist.o html-lib.o string-lib.o
+	mv cgihtml.a $(LIB_DIR)
+
+install:
+	mv cgihtml.a $(LIB_DIR)
+clean:
+	rm -f *.o cgihtml.a

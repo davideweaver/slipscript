@@ -1,0 +1,9 @@
+REGEDIT
+HKEY_CLASSES_ROOT\.slip = slipfile
+HKEY_CLASSES_ROOT\slipfile = SlipScript File
+HKEY_CLASSES_ROOT\slipfile\DefaultIcon = C:\WINDOWS\SYSTEM\shell32.dll,21
+HKEY_CLASSES_ROOT\slipfile\Shell\Edit\command = notepad.exe %1
+HKEY_CLASSES_ROOT\Software\SlipScript\IncludeDir = c:\inetpub\wwwroot\slipscript\include
+HKEY_CLASSES_ROOT\Software\SlipScript\LogDir = c:\temp
+HKEY_CLASSES_ROOT\Software\SlipScript\UseSystem = 1
+HKEY_CLASSES_ROOT\Software\SlipScript\UseFopen = 1

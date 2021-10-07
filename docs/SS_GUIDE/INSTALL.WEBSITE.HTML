@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+   <TITLE>Installing SlipScript on O'Reilly's Website server</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0b6Gold (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="David Weaver">
+</HEAD>
+<BODY BGCOLOR=WHITE>
+<H3>Installing SlipScript on O'Reilly's Website server</H3>
+<HR>
+For this example installation, we are assuming the Website webserver is installed in <I>c:\website</I>.
+
+<OL>
+	<LI>Download SlipScript to a temporary directory.</LI>
+	<LI>Unzip the file you just downloaded.</LI>
+	<LI>Run CONVERT.BAT to change to long filenames.</LI>
+	<LI>Create a directory to hold your SlipScript scripts (for this example we will make it <I>c:\website\sscripts</I>).</LI>
+	<LI>Move SLIPSCRIPT.EXE, TEST.SLIP and STRING.SLIP to the directory you just created. 
+	<BR>
+	<LI>In File Manager, create an association for the extension .SLIP with <I>c:\website\sscripts\slipscript.exe</I>.</LI>
+	<LI>Goto the Website Server Properties page, on the Mapping tab choose the Standard CGI radiobutton. Now enter the information
+	       to map to the new directory you created in step 4.</LI>
+	<LI>Now goto the CGI tab, make sure the Standard CGI Shell box has an asterisk in it and the Exec Template is ~s ~p.</LI>
+	<LI>Stop and Restart the web server in Control Panel.</LI>
+</OL>
+
+</BODY>
+</HTML>

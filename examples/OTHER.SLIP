@@ -1,0 +1,24 @@
+
+<@
+	foo = new(Object);
+	foo.val = 0;
+	foo.val2 = 0;
+	function foo::const() {
+		this.val2 = 11;
+	}
+	write( "here1<BR>" );
+	define foo::func( n, x ) {
+		super.const( foo, Object );
+		this.val = n;
+		write( x );
+	}
+	write( "here2<BR>" );
+	fi = new(foo);
+	write( "here3<BR>" );
+	i = 2;
+	write( "here4<BR>" );
+	fi.val = 3;
+	fi.func( fi, foo, 30, "dave weaver<BR>" );
+	write( fi.val );
+	write( fi.val2 );
+@>

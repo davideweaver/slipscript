@@ -1,0 +1,47 @@
+<HTML>
+<TITLE>Edit Current Events</TITLE>
+<BODY BGCOLOR=WHITE>
+
+<H2>Edit LF Current Events</H2>
+
+<HR>
+
+
+
+<@
+	
+    id = getValue( "id" );
+
+    stream = fopen( "c:\\temp\\edit.events.log", "a" );
+    
+    if( id == NULL ) {
+	// log activity
+	date = getDateTime( "%b %d, %Y  %I:%M%p" );
+    	write( "Attempted : " + date + "\n", stream ); 
+	write( "	Form displayed.\n", stream );
+
+	write("Enter your email address for verification:");
+	write("<FORM ACTION=events.slip>\n");
+	write("<INPUT TYPE=TEXT NAME=id>\n");
+	write("<INPUT TYPE=SUBMIT VALUE=Submit>\n");
+	write("</FORM>\n");
+
+	fclose( stream );
+	exit();
+    }
+    else {
+    	if( id != "" ) {
+			write( "	Access cleared: " + id + "\n", stream );
+			fclose( stream );
+			redirect( "http://localhost/slipscript/calendar/view.event.slip" );
+		}	
+    	else {
+			write( "	Access denied: " + id + "\n", stream );
+			fclose( stream );
+			write( "You do not have permission to edit events." );
+		}
+    }
+@>
+
+</B><BR><BR>
+[<A HREF="current.events.slip">Go Back</A>]

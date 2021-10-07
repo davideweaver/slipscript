@@ -1,0 +1,25 @@
+<HTML>
+<TITLE>Test SlipScript</TITLE>
+
+<@
+
+version();
+if(2 == 1)
+    write("\nCool");
+else
+    write("\nDave Weaver\n");
+
+    // send an email
+    ret_val = email( "david.weaver@hotmail.com", "davew@tool.ie.psu.edu", "subject", "body", "mail.interbrace.com" );
+    write( ret_val );
+
+    date = getDateTime( "%h %d %Y" );
+    write( "<BR><B>The date is: </B>" + date + "<BR><BR>" );
+
+@>Hello boys
+
+<@
+version();
+insertFile("courses.txt");
+@>
+</HTML>

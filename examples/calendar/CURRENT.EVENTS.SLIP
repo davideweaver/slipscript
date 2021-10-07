@@ -1,0 +1,81 @@
+<HTML>
+<TITLE>Calendar of Events</TITLE>
+<BODY BGCOLOR=white>
+
+<H2>Calendar of Events</H2>
+<HR>
+<CENTER>
+ 
+<@ write( "<B>Month - " + getDateTime( "%h" ) + "</B>" ); @>
+   
+<TABLE WIDTH=100% BORDER BGCOLOR=#A4BAFB>
+<TR ALIGN=center BGCOLOR=#008080>
+<TD><B><FONT COLOR=#BBBBBB>Sunday</B></FONT></TD>
+<TD><B><FONT COLOR=#BBBBBB>Monday</B></FONT></TD>
+<TD><B><FONT COLOR=#BBBBBB>Tuesday</B></FONT></TD>
+<TD><B><FONT COLOR=#BBBBBB>Wednesday</B></FONT></TD>
+<TD><B><FONT COLOR=#BBBBBB>Thursday</B></FONT></TD>
+<TD><B><FONT COLOR=#BBBBBB>Friday</B></FONT></TD>
+<TD><B><FONT COLOR=#BBBBBB>Saturday</B></FONT></TD>
+</TR>
+
+
+<@	include( "calfunc.slip" ); 
+
+	szday = getDateTime( "%d" ); // returns a string
+	iday = atoi( szday );
+	sztextday = getDateTime( "%a" );
+	month = getDateTime( "%m" );
+	year = getDateTime( "%Y" );
+
+	current_date = getDateTime( "%m/%d/%Y" );
+	itextday = getintDay( sztextday );
+	
+	offset = ( itextday - ( ( iday % 7 ) - 1 ) );
+	
+	db1 = connectDB( "DBQ=c:\\inetpub\\wwwroot\\slipscript\\calendar\\calendar.mdb;DefaultDir=c:\\inetpub\\wwwroot\\slipscript\\calendar;Driver={Microsoft Access Driver (*.mdb)};DriverId=25;FIL=MS Access;" );
+
+	count = daycount( month );
+	for( i=1; i<=5; i++ ) {
+		write( "<TR VALIGN=TOP>\n" );
+		for( k=1; k<=7; k++ ) {
+			day = ( ( i - 1 ) * 7 + k ) - offset;
+			if( day == iday )
+				write( "<TD BGCOLOR=#C4FFD2 HEIGHT=57 WIDTH=14%><FONT SIZE=2>\n" );
+			else
+				write( "<TD HEIGHT=57 WIDTH=14%><FONT SIZE=2>" );
+			if( day > 0 && day <= count ) {
+				write( "<B>" );
+				write( day );
+				write( "</B><BR>" );
+				szday = daytotext( day );
+				SQL = "SELECT ALL * FROM [Current Calendar] WHERE Date = #"+month+"/"+szday+"/"+year+"#";
+				queryDB( db1, SQL );
+				rows = getRowsDB( db1 );
+				for( j=1; j<=rows; j++ ) {
+					event = getValueDB( db1, "Title", j );
+					write( "<A HREF=day.slip?date=" +month+"/"+szday+"/"+year );
+					write( "&title=" + event + ">" + event + "</A><BR>" );
+				}
+			}
+			write( "<BR></TD>\n" );
+		}
+		write( "</TR>\n" );
+	}
+	write( "</TABLE>" );
+
+@>
+
+<BR><BR>
+
+<center><FONT SIZE=2>
+[<a href="events.slip">Edit Events</a>]
+<p>
+<hr>
+<!A HREF="http://lfserver.lf.psu.edu/davew/mypage.html"><!IMG SRC="gifs/sign3.gif" HSPACE=30 BORDER=0></A>
+<p>
+<DIV ALIGN=RIGHT><i>Last updated 
+<@ write( getDateTime( "%b %d, %Y" ) ); @></i></DIV>
+</FONT>
+</BODY>
+</HTML>

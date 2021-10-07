@@ -1,0 +1,13 @@
+TODO for cgihtml
+$Id: TODO,v 1.5 1996/07/24 07:32:22 eekim Exp eekim $
+==========================
+
+o Add interactive debugger for environment variables.
+
+o Add cookie support.
+
+o Transparent FastCGI support.
+
+o Improve robustness.
+
+o Fix any bugs that got away.

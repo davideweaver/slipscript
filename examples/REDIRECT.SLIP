@@ -1,0 +1,16 @@
+<HTML>
+
+<TITLE>Test Script</TITLE>
+<BODY BGCOLOR=white>
+
+
+
+<@
+	// redirect to microsoft's site
+	
+	redirect( "http://www.microsoft.com/" );
+@>
+
+
+</BODY>
+</HTML>

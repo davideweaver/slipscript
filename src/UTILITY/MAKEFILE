@@ -1,0 +1,18 @@
+# Makefile for utility.a
+# $Id: Makefile, 1996/09/02 04:23:23 David Weaver $
+
+INC_DIR = /~deweaver/program/include
+CC= gcc -I$(INC_DIR) 
+CFLAGS= -g -Wall #-DUNIX -DUPLOADDIR=/tmp
+LIB_DIR = ../../lib
+
+all: utility.a
+
+utility.a: ini_file.o tags.o strstri.o strnicmp.o stricmp.o strlwr.o
+	ar cr utility.a ini_file.o tags.o strstri.o strnicmp.o stricmp.o strlwr.o
+	mv utility.a $(LIB_DIR)
+
+install:
+	mv utility.a $(LIB_DIR)
+clean:
+	rm -f *.o utility.a

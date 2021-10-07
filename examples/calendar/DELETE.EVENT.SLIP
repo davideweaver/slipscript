@@ -1,0 +1,23 @@
+<HTML>
+<BODY BGCOLOR=WHITE>
+<B>
+<@
+	// Dave Weaver - 9/27/96
+	// deletes an event from the current event calendar
+
+	title = getValue("title");
+	
+	if( title == NULL ) {
+		write("You didn't enter the title. Event not deleted.");
+	}
+	else {
+		datanum = connectDB( "LF" );
+		sql = "DELETE * FROM Calendar WHERE Title = '"+title+"'";
+		queryDB( datanum, sql );
+		write( "If you entered a matching title, it was deleted." );
+	}
+
+@>
+
+</B><BR><BR>
+[<A HREF="/sscripts/calendar/view.event.slip">Go Back</A>]

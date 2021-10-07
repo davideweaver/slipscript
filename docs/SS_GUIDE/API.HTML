@@ -1,0 +1,334 @@
+<HTML>
+<HEAD>
+   <TITLE>Slipscript API Listing</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0b6Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<H1>SlipScript API Listing</H1>
+
+<P>
+<HR></P>
+
+
+<P><B><FONT SIZE=+2>Basic Functions</FONT></B><A NAME="Utility"></A></P>
+
+<FONT SIZE=+1><B>include<A NAME="include"></A></B>(<I>String<B>
+</B></I>filename<B>)</B></FONT><BR>
+Allows you to use code located in other files. Mainly, a library of
+functions. A small string library came in the zipped SlipScript file
+(called STRING.SLIP).
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>write<A NAME="write"></A></B>(<I>String/int </I>message, [<I>File </I>fstream]<B>)</B></FONT><BR>
+Writes the message to the screen. Message can be a String or an integer,
+but not both. For example, the following is ok:<BR>
+<TT>write(&quot;My name is &quot; + name + &quot;\n&quot;);<BR>
+</TT>and so is:<BR>
+<TT>write(6); </TT>or<TT> write(sizeof(name));<BR>
+</TT>but this causes an error:<BR>
+<TT>write(&quot;I am &quot; + age + &quot;years old.\n&quot;);</TT>
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>int</I><B>
+sizeof<A NAME="sizeof"></A>(</B><I>Object<B> </B></I>object<B>)</B></FONT><BR>
+Returns the size of an object
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>exit<A NAME="exit"></A></B>()</FONT><BR>
+This function will exit your code and continue.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>String</I><B>
+newString<A NAME="newString"></A>(</B><I>int<B> </B></I>size<B>)</B></FONT><BR>
+Creates and return an empty String of the given size.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>String</I><B>
+getenv<A NAME="getenv"></A>(</B><I>String<B> </B></I>name<B>)</B></FONT><BR>
+Returns the environment variable that is associated with the given
+name. It returns NULL if the given name is not found.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>system<A NAME="system"></A></B>(
+<I>String<B> </B></I>command<B>)</B></FONT><BR>
+Executes the command string.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>getDateTime<A NAME="datetime"></A></B>(
+<I>String<B> </B></I>format<B>)</B></FONT><BR>
+This is a new function added to this version to obtain time and
+date information. The function takes one parameter, <I>format </I></FONT>and
+returns a <I>String</I> containing the information<FONT COLOR="#000000">.
+The format parameter is a combination of symbols (see below) that describe
+how the time and/or date is returned.</FONT></P>
+</UL>
+
+<UL>
+<UL>
+<LI><TT><FONT COLOR="#000000">%a - 3 char weekday (&quot;Mon&quot;)</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%h,%b - 3 char month (&quot;Jan&quot;)</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%d - 2 digit day (0 - 31)</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%H - 2 digit hour (0 - 23)</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%I - 2 digit hour (1 - 12)</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%m - 2 digit month</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%p - 2 char (AM&nbsp;or PM)</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%s - 2 digit seconds (0 - 59)</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%y - 2 digit year</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%Y - 4 digit year (19XX)</FONT></TT></LI>
+
+<LI><TT><FONT COLOR="#000000">%M 2 digit minute (0 - 59)</FONT></TT></LI>
+</UL></UL>
+
+<P><FONT COLOR="#000000">Example - to return a date like <B>Feb 26, 1995</B>
+use a format string <TT>= &quot;%b %d, %Y&quot;</TT>.</FONT></P>
+
+
+<P><BR>
+<BR>
+</P>
+
+<P><B><FONT SIZE=+2>Internet <A NAME="Internet"></A>Functions</FONT></B></P>
+
+<FONT SIZE=+1><I>String</I><B>
+getValue<A NAME="getValue"></A>(</B><I>String<B> </B></I>name<B>)</B></FONT><BR>
+Returns the value of the CGI variable passed to the script. The name string
+is the name of the value being requested. Name can also be the name of a server variable,
+such as QUERY_STRING. For example, if the script was called like:<BR>
+<TT>  http://hostname.com/scripts/my_script.slip?var1=hello </TT><BR>
+Then getValue("var1") will return "hello". The function returns NULL if the
+variable cannot be found or is blank.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>String</I><B>
+getBrowserName<A NAME="getBrowserName"></A>()</B></FONT><BR>
+Returns the name of the client's browser
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>String</I><B>
+getBrowserVersion<A NAME="getBrowserVersion"></A>()</B></FONT><BR>
+Returns the version of the client's browser
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>insertFile<A NAME="insertFile"></A></B>(<I>String<B>
+</B></I>filename<B>)</B></FONT><BR>
+Inserts and writes a file with the given filename to the screen. Note
+- the filename must include double backslashes in the path. <TT>(i.e. insertFile(&quot;c:\\directory\\file.ext&quot;);</TT>
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>email<A NAME="email"></A></B>(<I>String<B>
+</B></I>to, <I>String<B> </B></I>from, <I>String<B> </B></I>subject,<I><B>
+</B>String<B> </B></I>body,<I><B> </B>String<B> </B></I>host<B>)</B></FONT><BR>
+This function sends an email to the email address in the <B>to</B>
+variable. The <B>to</B> variable must be a correct internet mail address
+(i.e. jdoe@company.com). The <B>from</B> variable can be a name or an email
+address or both. The <B>host</B> variable must be the address of your SMTP
+email server. The return value is 0 on success and a return of non-zero
+indicates an error.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>redirect<A NAME="redirect"></A></B>(<I>String<B>
+</B></I>location<B>)</B></FONT><BR>
+Sends the clients browser to another URL specified by location. Location must be
+a fully qualified URL.
+
+<P><BR>
+<BR>
+</P>
+
+<P><B><FONT SIZE=+2>ODBC <A NAME="ODBC"></A>Functions</FONT></B></P>
+
+<FONT SIZE=+1><I>int</I><B>
+connectDB<A NAME="connectDB"></A>(</B><I>String</I> datasourcename[, <I>String</I>
+userid, <I>String</I> passwd]<B>)</B></FONT><BR>
+This connects to the datasource named in the <B>datasourcename</B>
+variable with the optional <B>userid</B> and <B>passwd</B>. It returns
+a handle to the open connection. This handle will be used by the other
+Database functions. If there is an error, it will return 0;
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>queryDB<A NAME="queryDB"></A></B>(
+<I>int<B> </B></I>dbhandle<I>, String </I>sqlstatement<B><I>)</I></B></FONT><BR>
+Executes the <B>sqlstatement</B> in the datasource that is associated
+with the <B>dbhandle </B>returned from <B>connectDB() </B>above. The result
+table can be accessed by the next four functions, <B>getColsDB(), getRowsDB(),
+getValueDB() </B>and <B>reportDB()</B>.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>int</I><B>
+getColsDB<A NAME="getColsDB"></A>(</B> <I>int<B> </B></I>dbhandle<B>)</B></FONT><BR>
+Returns the number of columns in the result table of the datasource
+associated with the <B>dbhandle</B>. If an error occurs the function returns
+NULL, or if the result table is empty, the function returns 0.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>int</I><B>
+getRowsDB<A NAME="getRowsDB"></A>(</B> <I>int<B> </B></I>dbhandle<B>)</B></FONT><BR>
+Returns the number of rows in the result table of the datasource associated
+with the <B>dbhandle</B>. If an error occurs the function returns NULL,
+or if the result table is empty, the function returns 0.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>String</I><B>
+getValueDB<A NAME="getValueDB"></A>(</B> <I>int<B> </B></I>dbhandle, <I>String<B>
+</B></I>heading, <I>int<B> </B></I>row<B>)</B></FONT><BR>
+Returns the value of the results table of the datasource associated
+with the <B>dbhandle </B>that matches the given <B>heading</B> in the given
+<B>row. </B>If an error occurs or the result table is empty, the function
+returns NULL.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>reportDB<A NAME="reportDB"></A></B>(<I>int<B>
+</B></I>dbhandle, <I>String<B> </B></I>format, <I>int<B> </B></I>rows<B>)</B></FONT><BR>
+This is a very powerful function. It takes the <B>format </B>String
+and inserts data when it finds a matching tag and prints the reformatted
+line to the screen, and then repeats this for each row in the results table
+or for the amount specified in the <B>rows</B> variable. For example, if
+you create a format string like this:<BR>
+<TT>&quot;Employee Name: %Last%,%First% Salary: %Salary%&quot;<BR>
+</TT>Then this function will replace %Last% with value in the first row
+matching the heading 'Last' of the results table, and the same with %First%
+and %Salary% and then print the String to the screen for each row in the
+result set ( or the amount in <B>rows</B>). If <B>rows </B>= 2, the output
+with sample values would appear as:<BR>
+<TT>Employee Name: Doe,John Salary: $150,000<BR>
+Employee Name: Miller,Bill Salary: $100,000</TT>
+
+<P><BR>
+<BR>
+</P>
+
+<P><B><FONT SIZE=+2>File <A NAME="File"></A>I/O Functions</FONT></B></P>
+
+<FONT SIZE=+1><I>File</I><B>
+fopen<A NAME="fopen"></A>(</B><I>string<B> </B></I>filename,<I> string<B>
+</B></I>mode<B>)</B></FONT><BR>
+Opens a file stream, given a filename and a mode to open it with. Modes
+can be: &quot;r&quot; for reading, &quot;w&quot; for writing and &quot;a&quot;
+for appending a file. Returns NULL if file can't be opened. Note-when you specify the filename it must use double
+backslashes in the path.(eg. <TT>stream = fopen(&quot;c:\\files\\file.ext&quot;,&quot;r&quot;);</TT>).
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>fclose<A NAME="fclose"></A>(</B><I>File<B>
+</B></I>fstream<B>)</B></FONT><BR>
+Closes an open file stream.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>int</I><B>
+getc<A NAME="getc"></A>(</B><I>File<B> </B></I>fstream<B>)</B></FONT><BR>
+Returns the next Char from the file stream. The file stream must be
+opened for reading. Returns NULL if end of file is reached.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>putc<A NAME="putc"></A>(</B><I>int<B>
+</B></I>char[,<I> File<B> </B></I>fstream]<B>)</B></FONT><BR>
+Appends a char to the end of a filestream. The file stream must be
+opened for writing or appending. If the 2nd parameter is omitted, the char
+is sent to the screen.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>String</I><B>
+getl<A NAME="getl"></A>(</B><I>File<B> </B></I>fstream<B>)</B></FONT><BR>
+Creates and returns the entire next line from the file stream. The
+file stream must be opened for reading. Returns NULL&nbsp;if end of file
+is reached.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><B>store<A NAME="store"></A></B>(<I>Object<B>
+</B></I>object, <I>File</I> fstream<B>)</B></FONT><BR>
+Writes an entire object to a file stream. The file stream must be opened
+for writing or appending.
+
+<P><BR>
+<BR>
+</P>
+
+<FONT SIZE=+1><I>Object</I><B>
+retrieve<A NAME="retrieve"></A>(</B><I>File<B> </B></I>fstream<B>)</B></FONT><BR>
+
+Returns the next object from the file stream. The file stream must
+be opened for reading. The program must be aware of what kind of object
+it is reading and the order the objects were written to the file.
+
+<P><BR>
+<BR>
+</P>
+
+</BODY>
+</HTML>
+

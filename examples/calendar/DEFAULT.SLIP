@@ -1,0 +1,5 @@
+<@
+	// redirect to microsoft's site
+	
+	redirect( "/slipscript/calendar/current.events.slip" );
+@>

@@ -1,0 +1,38 @@
+# Makefile for cgihtml.a
+# $Id: Makefile,v 1.6 1996/08/11 04:23:23 eekim Exp eekim $
+
+CC= gcc
+RANLIB = ranlib
+CFLAGS= -g -Wall -DUNIX #-DUPLOADDIR=/tmp
+CGI-BIN= /home/eekim/Web/cgi-bin
+
+all: cgihtml.a query-results mail.cgi index-sample.cgi ignore.cgi test.cgi
+
+cgihtml.a: cgi-lib.o cgi-llist.o html-lib.o string-lib.o
+	ar cr cgihtml.a cgi-lib.o cgi-llist.o html-lib.o string-lib.o
+	$(RANLIB) cgihtml.a
+
+query-results: query-results.o cgihtml.a
+	$(CC) query-results.o cgihtml.a -o query-results
+
+mail.cgi: mail.cgi.o cgihtml.a
+	$(CC) mail.cgi.o cgihtml.a -o mail.cgi
+
+index-sample.cgi: index-sample.cgi.o cgihtml.a
+	$(CC) index-sample.cgi.o cgihtml.a -o index-sample.cgi
+
+ignore.cgi: ignore.cgi.o cgihtml.a
+	$(CC) ignore.cgi.o cgihtml.a -o ignore.cgi
+
+test.cgi: test.cgi.o cgihtml.a
+	$(CC) test.cgi.o cgihtml.a -o test.cgi
+
+install: all
+	chmod a+x query-results mail.cgi index-sample.cgi ignore.cgi test.cgi
+	strip query-results mail.cgi index-sample.cgi ignore.cgi test.cgi
+	mv -f query-results mail.cgi index-sample.cgi ignore.cgi test.cgi $(CGI-BIN)
+
+clean:
+	rm -f *.o cgihtml.a
+	rm -f query-results mail.cgi index-sample.cgi ignore.cgi test.cgi
+

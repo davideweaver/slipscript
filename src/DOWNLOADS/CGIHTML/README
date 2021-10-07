@@ -1,0 +1,66 @@
+README for cgihtml and complementary utilities
+by Eugene Eric Kim <eekim@hcs.harvard.edu>
+$Id: README,v 1.6 1996/08/11 04:22:01 eekim Exp eekim $
+================================================
+
+cgihtml is a collection of CGI parsing and HTML output functions
+written in C.  These routines simplify the task of writing CGI
+programs in C.
+
+To install, untar the distribution in your cgi-src directory and
+type 'make'.  Documentation is in docs/cgihtml.html.  More information
+is available on the cgihtml home page at
+     <URL:http://hcs.harvard.edu/~eekim/web/cgihtml/>
+
+You can obtain a copy of cgihtml from:
+     <URL:ftp://hcs.harvard.edu/pub/web/tools/cgihtml.tar.gz>
+
+For updates and announcements, subscribe to the cgihtml mailing list
+by sending e-mail to majordomo@hcs.harvard.edu with the message:
+
+     subscribe cgihtml
+
+For a simple example of how to use cgihtml, look at the source for
+query-results.c.
+
+Included Files:
+---------------
+     README            - You are reading this now
+     CHANGES           - version revision information
+     CREDITS           - credits
+     TODO              - Things I want to implement in the future
+     docs/cgihtml.html - Documentation
+     docs/cgihtml_0.html
+     docs/cgihtml_1.html
+     docs/cgihtml_2.html
+     docs/cgihtml_3.html
+     docs/cgihtml_4.html
+     docs/cgihtml_5.html
+     Makefile          - Makefile
+     cgi-lib.c         - Source code
+     cgi-llist.c
+     html-lib.c
+     string-lib.c
+     cgi-lib.h         - Header files
+     cgi-llist.h
+     html-lib.h
+     string-lib.h
+
+     query-results.c   - Example programs
+     mail.cgi.c
+     index-sample.cgi.c
+     ignore.cgi.c
+     test.cgi.c
+
+Release Notes:
+--------------
+cgihtml and all accompanying source is hereby released to the public
+domain.  Although I do not require it, I would appreciate attribution
+if you use my code.
+
+Contact Information:
+--------------------
+The author may be contacted via email at: eekim@hcs.harvard.edu
+
+His web page is located at: <URL:http://hcs.harvard.edu/~eekim/>
+

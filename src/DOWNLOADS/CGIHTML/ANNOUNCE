@@ -1,0 +1,49 @@
+Announcing cgihtml v1.5
+
+Version 1.5 of my cgihtml library is now available.  Changes include:
+
+   o Interactive input mode for debugging from the command line.
+   o Support for file upload.
+   o Internal code cleanup, bug fixes galore, and some new functions.
+
+----------------------------------------------------------------------
+
+cgihtml is C library for writing Common Gateway Interface (CGI)
+programs for use on the World Wide Web (WWW).  It includes routines to
+perform form data parsing and HTML output.  These routines greatly
+simplify the task of writing CGI programs in C.
+
+This library is public domain.  Includes example programs.
+
+cgihtml was recently named one of the top 2 web tools for CGI
+programming by PC Computing (August 1996).
+
+----------------------------------------------------------------------
+
+I highly recommend users of cgihtml v1.21 to upgrade.  There are
+several useful bug fixes and improvements in this realize.
+
+Available at:
+
+     <URL:ftp://hcs.harvard.edu/pub/web/tools/cgihtml-1.5.tar.gz>
+
+Documentation and other information is available at:
+
+     <URL:http://hcs.harvard.edu/~eekim/web/cgihtml/>
+
+NOTE!  My e-mail addressed has changed.  You may now reach me at:
+     eekim@hcs.harvard.edu
+
+Please update your records accordingly.  Thanks.
+
+----------------------------------------------------------------------
+
+Join the cgihtml mailing list for the latest announcements and
+updates.  Send e-mail to majordomo@hcs.harvard.edu with the message:
+
+     subscribe cgihtml
+
+If you use cgihtml, I'd like to hear about it.  Please send me e-mail
+with your name, your URL, and a brief description of how you use
+cgihtml.  Thanks!
+

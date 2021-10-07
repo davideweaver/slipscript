@@ -1,0 +1,12 @@
+<HTML>
+
+<@
+	// test to check http server variables
+	// Dave Weaver 11/14/94
+
+	val = getValue( "HTTP_USER_AGENT" );
+	write( val );
+
+@>
+
+</HTML>

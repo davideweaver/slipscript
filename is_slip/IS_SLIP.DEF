@@ -1,0 +1,7 @@
+; IS_SLIP.def : declares the module parameters for the DLL.
+
+LIBRARY	     "slipscript"
+
+EXPORTS
+	HttpExtensionProc
+	GetExtensionVersion

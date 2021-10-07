@@ -1,0 +1,28 @@
+<HTML>
+<BODY BGCOLOR=WHITE>
+<B>
+<@
+	// Dave Weaver - 9/27/96
+	// enters an event into the current event calendar
+
+	title = getValue("title");
+	date = getValue("date");
+	time = getValue("time");
+	desc = getValue("description");
+
+	if( title == NULL || date == NULL || desc == NULL) {
+		write("You missed the title, date or description. Event not entered.");
+	}
+	else {
+		datanum = connectDB( "DBQ=c:\\inetpub\\wwwroot\\slipscript\\calendar\\calendar.mdb;DefaultDir=c:\\inetpub\\wwwroot\\slipscript\\calendar;Driver={Microsoft Access Driver (*.mdb)};DriverId=25;FIL=MS Access;" );
+		sql = "INSERT INTO [Current Calendar] ([Title],[Description],[Date])";
+		sql += " VALUES('"+title+"','"+desc+"','"+date+"')";
+		queryDB( datanum, sql );
+		write( "The event was successfully entered." );
+	}
+
+@>
+
+
+</B><BR><BR>
+[<A HREF="view.event.slip">Go Back</A>]

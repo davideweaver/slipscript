@@ -1,0 +1,114 @@
+<html> <head>
+<title>1. Installation</title>
+<!-- $Id: cgihtml_1.html,v 1.5 1996/07/24 07:33:20 eekim Exp eekim $ -->
+</head>
+<body>
+
+<h1>1. Installation</h1>
+
+[
+<a href="cgihtml_2.html">Next</a> |
+<a href="cgihtml.html">Up to Table of Contents</a> |
+<a href="cgihtml_0.html">Previous</a>
+]
+
+<hr>
+<a name="1">
+
+<h2>1.1. Requirements</h2>
+
+<p>cgihtml was written for Unix machines in C, although it has been
+successfully ported to Windows NT, and can probably be ported to other
+operating systems.  All you need is a C compiler, and you should be
+set.</p>
+
+<p>By default, cgihtml assumes you are installing on a Unix machine with
+the CGI source code going in a cgi-src directory and the binaries in a
+cgi-bin directory.</p>
+
+<hr>
+<a name="2">
+
+<h2>1.2. Obtaining and unpacking the distribution</h2>
+
+<p>You may find cgihtml-1.5.tar.gz at
+<a href="ftp://hcs.harvard.edu/pub/web/tools/">
+ftp://hcs.harvard.edu/pub/web/tools/</a>.</p>
+
+<p>To unpack the distribution, you must first gunzip it (using the GNU
+gzip utility) and then untar it.  Copy the distribution into your CGI
+source directory, and try the following commands:</p>
+
+<pre>
+     % gzip -d cgihtml-1.5.tar.gz
+     % tar -xvf cgihtml-1.5.tar
+</pre>
+
+<p>cgihtml is also available in UNIX compressed (.Z) and PKZipped
+(.zip) format.</p>
+
+<hr>
+<a name="3">
+
+<h2>1.3. Compiling the library</h2>
+
+<p>To compile the library on a UNIX platform, examine the Makefile
+and make sure you are satisfied with the variables.  Then type:</p>
+
+<pre>
+     % make cgihtml.a
+</pre>
+
+<p>This will produce the file cgihtml.a.  To compile the library as well
+as all of the example programs, type:</p>
+
+<pre>
+     % make all
+</pre>
+
+<h3>Configuring File Upload</h3>
+
+<p>By default, the file upload directory is set to /tmp.  To change
+this value, uncomment <tt>#-DUPLOADDIR=/tmp</tt> in the Makefile and
+replace /tmp with the directory of your choice.</p>
+
+<h3>For NT Users Only</h3>
+
+<p>If you are compiling on Windows NT, uncomment out -DUNIX.  The line
+in your Makefile should look like this:</p>
+
+<pre>
+   CFLAGS= -g -Wall #-DUNIX
+</pre>
+
+<hr>
+<a name="4">
+
+<h2>1.4. Porting</h2>
+
+<p>While compiling the libraries on various Unix machines, you may have
+trouble with the "ranlib" command.  If you system doesn't seem to have
+this command, you most likely don't need.  Set the RANLIB variable in
+the Makefile to "true".</p>
+
+<p>If you are attempting to port this library to a non-Unix system,
+defining NT at compile time should work, even if you're not using
+Windows NT.</p>
+
+<hr>
+[
+<a href="cgihtml_2.html">Next</a> |
+<a href="cgihtml.html">Up to Table of Contents</a> |
+<a href="cgihtml_0.html">Previous</a>
+]
+
+<hr>
+<address>
+Copyright &#169; 1996 Eugene Eric Kim /
+<a href="mailto:eekim@hcs.harvard.edu">
+eekim@hcs.harvard.edu</a>
+</address>
+<!-- hhmts start -->
+Last modified: Tue Jul 23 22:33:41 PDT 1996
+<!-- hhmts end -->
+</body> </html>

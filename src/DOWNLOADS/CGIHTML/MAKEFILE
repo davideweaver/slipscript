@@ -1,0 +1,18 @@
+# Makefile for cgihtml.a
+# $Id: Makefile,v 1.6 1996/08/11 04:23:23 eekim Exp eekim $
+
+CC= gcc
+RANLIB = ranlib
+CFLAGS= -g -Wall #-DUNIX #-DUPLOADDIR=/tmp
+LIB_DIR = /home/davew/program/lib
+
+all: cgihtml.a
+
+cgihtml.a: cgi-lib.o cgi-llist.o html-lib.o string-lib.o
+	ar cr cgihtml.a cgi-lib.o cgi-llist.o html-lib.o string-lib.o
+	$(RANLIB) cgihtml.a
+
+install:
+	mv cgihtml.a $(LIB_DIR)
+clean:
+	rm -f *.o cgihtml.a
