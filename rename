@@ -1,0 +1,14 @@
+#! /bin/bash
+
+git mv ./docs/SS_GUIDE/IMAGES/API.OFF.GIF ./docs/ss_guide/images/api.off.gif
+git mv ./docs/SS_GUIDE/IMAGES/API.ON.GIF ./docs/ss_guide/images/api.on.gif
+git mv ./docs/SS_GUIDE/IMAGES/INSTALL.OFF.GIF ./docs/ss_guide/images/install.off.gif
+git mv ./docs/SS_GUIDE/IMAGES/INSTALL.ON.GIF ./docs/ss_guide/images/install.on.gif
+git mv ./docs/SS_GUIDE/IMAGES/OVER.OFF.GIF ./docs/ss_guide/images/over.off.gif
+git mv ./docs/SS_GUIDE/IMAGES/OVER.ON.GIF ./docs/ss_guide/images/over.on.gif
+git mv ./docs/SS_GUIDE/IMAGES/SLIPSCRIPT.SUBTITLE.GIF ./docs/ss_guide/images/slipscript.subtitle.gif
+git mv ./docs/SS_GUIDE/IMAGES/SLIPSCRIPT.TITLE.EXE ./docs/ss_guide/images/slipscript.title.exe
+git mv ./docs/SS_GUIDE/IMAGES/SLIPSCRIPT.TITLE.JPEG ./docs/ss_guide/images/slipscript.title.jpeg
+git mv ./docs/SS_GUIDE/IMAGES/TUTOR.OFF.GIF ./docs/ss_guide/images/tutor.off.gif
+git mv ./docs/SS_GUIDE/IMAGES/TUTOR.ON.GIF ./docs/ss_guide/images/tutor.on.gif
+git mv ./docs/SS_GUIDE/IMAGES/Thumbs.db ./docs/ss_guide/images/thumbs.db
