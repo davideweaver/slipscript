@@ -26,14 +26,14 @@ parameter.</P>
 <UL>
 <P><TT><FONT COLOR="#616161">&lt;HTML&gt;<BR>
 &lt;TITLE&gt;SlipScript Test&lt;/TITLE&gt;<BR>
-&lt;SCRIPT&nbsp;LANGUAGE=SLIPSCRIPT&gt;</FONT></TT></P>
+&lt;@</FONT></TT></P>
 
 <UL>
 <P><TT><FONT COLOR="#616161">a = &quot;HelloWorld&quot;;<BR>
 write(a + &quot;\n&quot;);</FONT></TT></P>
 </UL>
 
-<P><TT><FONT COLOR="#616161">&lt;/SCRIPT&gt;<BR>
+<P><TT><FONT COLOR="#616161">@&gt;<BR>
 &lt;/HTML&gt;</FONT></TT></P>
 </UL>
 
@@ -52,7 +52,7 @@ put it in our web doucument root directory.</P>
 <P>Now you can create a &lt;FORM&gt; to call this page.</P>
 
 <UL>
-<P><TT><FONT COLOR="#616161">&lt;FORM ACTION=</FONT><FONT COLOR="#0000FF">/public_html/test.slip</FONT><FONT COLOR="#616161">
+<P><TT><FONT COLOR="#616161">&lt;FORM ACTION=</FONT><FONT COLOR="#0000FF">/test.slip</FONT><FONT COLOR="#616161">
 METHOD=post&gt;<BR>
 &lt;INPUT TYPE=text NAME=name&gt;<BR>
 &lt;INPUT&nbsp;TYPE=text NAME=email&gt;<BR>
@@ -64,13 +64,13 @@ METHOD=post&gt;<BR>
 you browser:</P>
 
 <UL>
-<P><TT><FONT COLOR="#616161">http://www.yer_server.com</FONT><FONT COLOR="#0000FF">/public_html/test.slip</FONT><FONT COLOR="#616161">?</FONT><FONT COLOR="#0000FF">email</FONT><FONT COLOR="#616161">=</FONT><FONT COLOR="#0000FF">myname@here.com</FONT></TT></P>
+<P><TT><FONT COLOR="#616161">http://www.yer_server.com</FONT><FONT COLOR="#0000FF">/test.slip</FONT><FONT COLOR="#616161">?</FONT><FONT COLOR="#0000FF">email</FONT><FONT COLOR="#616161">=</FONT><FONT COLOR="#0000FF">myname@here.com</FONT></TT></P>
 </UL>
 
 <P>Or you can create a link from another page, like:</P>
 
 <UL>
-<P><TT><FONT COLOR="#616161">&lt;A&nbsp;HREF=&quot;</FONT><FONT COLOR="#0000FF">/public_html/test.slip</FONT><FONT COLOR="#616161">?</FONT><FONT COLOR="#0000FF">email</FONT><FONT COLOR="#616161">=</FONT><FONT COLOR="#0000FF">myname@here.com</FONT><FONT COLOR="#616161">&quot;&gt;Test&lt;/A&gt;</FONT></TT></P>
+<P><TT><FONT COLOR="#616161">&lt;A&nbsp;HREF=&quot;</FONT><FONT COLOR="#0000FF">/test.slip</FONT><FONT COLOR="#616161">?</FONT><FONT COLOR="#0000FF">email</FONT><FONT COLOR="#616161">=</FONT><FONT COLOR="#0000FF">myname@here.com</FONT><FONT COLOR="#616161">&quot;&gt;Test&lt;/A&gt;</FONT></TT></P>
 </UL>
 
 
@@ -113,9 +113,8 @@ write(&quot;Here is a new site:&lt;BR&gt;\n&quot;);<BR>
 link.print();</FONT></TT></P>
 </UL>
 
-<P>Now, if you place this script inside &lt;SCRIPT&gt; tags (make sure
-you set LANGUAGE=SLIPSCRIPT) and call the SlipScript executable with this
-file, the output will look like this. <A HREF="../../cgi-bin/slipscript.exe?template=c:/internet/public_html/depts/website/slipscript/object.html">Click
+<P>Now, if you place this script inside &lt;@ ... @&gt; tags and call the SlipScript executable with this
+file, the output will look like this. <A HREF="../../cgi-bin/slipscript.exe?template=c:/internet/depts/website/slipscript/object.html">Click
 here</A>.</P>
 
 <P>That seems like a lot of work to just print out a link, but it was just
@@ -146,7 +145,7 @@ is the example page that reads the user info and stores it:</P>
 
 <UL>
 <P><TT><FONT COLOR="#616161">&lt;HTML&gt;<BR>
-&lt;SCRIPT LANGUAGE=SLIPSCRIPT&gt;</FONT></TT></P>
+&lt;@</FONT></TT></P>
 </UL>
 
 <UL>
@@ -185,7 +184,7 @@ write(&quot;&lt;H3&gt;Incorrect Info&lt;/H3&gt; &lt;A HREF=/prev.html&gt;Try
 again&lt;/A&gt;&quot;);</FONT></TT></P>
 </UL>
 
-<P><TT><FONT COLOR="#616161">&lt;/SCRIPT&gt;<BR>
+<P><TT><FONT COLOR="#616161">@&gt;<BR>
 &lt;/HTML&gt;</FONT></TT></P>
 </UL>
 
@@ -213,4 +212,3 @@ very complex object with a lot of data members and methods.</P>
 
 </BODY>
 </HTML>
-
