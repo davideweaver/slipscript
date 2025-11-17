@@ -44,9 +44,12 @@ Scripts are embedded between `<@ ... @>` tags and have access to HTTP server var
 ```
 slipscript/
 ├── bin/              # Compiled DLL (slipscript.dll)
-├── docs/             # HTML documentation with frameset interface
-│   ├── index.html    # Documentation entry point
-│   ├── ss_guide/     # Installation and API guides
+├── docs/             # Documentation
+│   ├── website/      # Original website (1994-95) with screenshots
+│   │   ├── README.md      # Website documentation
+│   │   ├── index.html     # Frameset entry point
+│   │   ├── ss_guide/      # Installation, tutorial, API guides
+│   │   └── screenshots/   # Website screenshots (overview, install, tutorial, APIs)
 │   └── bob/          # BOB interpreter documentation and source
 │       ├── README.md    # Technical architecture guide
 │       ├── ARTICLE.md   # DDJ article citation
@@ -76,18 +79,26 @@ slipscript/
 
 ## Documentation
 
-The project includes comprehensive HTML documentation:
+The project includes comprehensive documentation:
+
+**Original Website** ([`docs/website/`](docs/website/)):
+- Classic 1994-95 frameset design with screenshots
+- Installation guides (FastTrack, Enterprise, IIS)
+- Interactive tutorials and examples
+- Complete API reference
+
+**BOB Interpreter** ([`docs/bob/`](docs/bob/)):
+- Technical architecture documentation
+- Complete source code from DDJ article
+- Virtual machine design and bytecode details
 
 ```bash
-# Open the documentation
-open docs/index.html
-```
+# View original website
+open docs/website/index.html
 
-The documentation uses a frameset interface with:
-- Installation guides
-- API reference
-- Language tutorials
-- Example code
+# Or serve locally
+cd docs/website && python3 -m http.server 8000
+```
 
 ## Building
 
