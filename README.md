@@ -8,6 +8,13 @@ SlipScript enables authors to create dynamic web content by embedding scripts di
 
 **Historical Context**: SlipScript was developed in 1994-1995 during the early days of dynamic web content, before technologies like PHP, ASP, and JSP became mainstream. It represents an early approach to server-side scripting on Windows platforms.
 
+## Interpreter
+
+SlipScript is built on **BOB** (a tiny object-oriented language) by David Michael Betz, published in Dr. Dobb's Journal, September 1994. BOB uses a bytecode virtual machine with stack-based execution, compiling scripts once to bytecode and interpreting at runtime for efficiency.
+
+**Documentation**: See [`docs/bob/`](docs/bob/) for detailed architecture documentation and complete source code.
+**Reference**: [Bob: A Tiny Object-Oriented Language](https://jacobfilipp.com/DrDobbs/articles/DDJ/1994/9415/9415e/9415e.htm) - Dr. Dobb's Journal, "Alternative Programming Languages" volume
+
 ## Quick Example
 
 ```html
@@ -39,7 +46,11 @@ slipscript/
 ├── bin/              # Compiled DLL (slipscript.dll)
 ├── docs/             # HTML documentation with frameset interface
 │   ├── index.html    # Documentation entry point
-│   └── ss_guide/     # Installation and API guides
+│   ├── ss_guide/     # Installation and API guides
+│   └── bob/          # BOB interpreter documentation and source
+│       ├── README.md    # Technical architecture guide
+│       ├── ARTICLE.md   # DDJ article citation
+│       └── bob.asc      # Complete source code (669 lines)
 ├── examples/         # Sample .SLIP files
 │   ├── VARIABLES.SLIP
 │   ├── MAILTEST.SLIP
@@ -109,9 +120,10 @@ This project is preserved as a historical artifact. For modern server-side scrip
 
 See repository for license information.
 
-## Author
+## Authors
 
-David Weaver (1994-1995)
+**SlipScript Implementation**: David Weaver (1994-1995)
+**BOB Interpreter**: David Michael Betz (1994)
 
 ## Archive Notice
 
