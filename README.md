@@ -119,7 +119,7 @@ SlipScript represents an important piece of web development history:
 - **Pioneer of Dynamic Web**: One of the first server-side scripting engines (1994-1995)
 - **Foundation for Chili!ASP**: Evolved into the first cross-platform ASP engine
 - **Award-Winning Technology**: Chili!ASP won Best of Byte at PC Expo 1997
-- **Commercial Success**: Acquired by Cobalt Networks ($28M), then Sun Microsystems ($2B)
+- **Commercial Success**: Acquired by Cobalt Networks, then Sun Microsystems
 - **Embedded Syntax Pioneer**: Established `<@ ... @>` approach later adopted by ASP, JSP, PHP
 - **Cross-Platform Vision**: Proved ASP could run on Linux, Solaris, AIX, HP-UX beyond Windows/IIS
 
