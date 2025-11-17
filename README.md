@@ -6,7 +6,9 @@ A server-side scripting language for embedding dynamic content in HTML pages. Cr
 
 SlipScript enables authors to create dynamic web content by embedding scripts directly into HTML files. When a page is requested, the script executes before the HTML is returned to the browser. This allows CGI-style scripting without separate CGI programs.
 
-**Historical Context**: SlipScript was developed in 1994-1995 during the early days of dynamic web content, before technologies like PHP, ASP, and JSP became mainstream. It represents an early approach to server-side scripting on Windows platforms.
+**Historical Context**: SlipScript was developed in 1994-1995 by Dave Weaver during graduate studies at Penn State University, during the early days of dynamic web content. It predated mainstream adoption of PHP (1995), Microsoft ASP (1996), and JSP (1997), representing one of the first server-side dynamic web engines.
+
+**Legacy**: SlipScript evolved into "Active Dave" (1995-1996), a project to adapt it for Microsoft's Active Server Pages API. This became **Chili!ASP**, the first cross-platform ASP engine, which won **Best of Byte** at PC Expo 1997. ChiliSoft was later acquired by Cobalt Networks (2000), then Sun Microsystems (2000), becoming Sun ONE Active Server Pages before being discontinued.
 
 ## Interpreter
 
@@ -18,13 +20,10 @@ SlipScript is built on **BOB** (a tiny object-oriented language) by David Michae
 ## Quick Example
 
 ```html
-<HTML>
-<@
-    // Get and display the user agent
-    val = getValue( "HTTP_USER_AGENT" );
-    write( val );
-@>
-</HTML>
+<html>
+  <@ // Get and display the user agent val = getValue( "HTTP_USER_AGENT" );
+  write( val ); @>
+</html>
 ```
 
 Scripts are embedded between `<@ ... @>` tags and have access to HTTP server variables and CGI functions.
@@ -32,6 +31,7 @@ Scripts are embedded between `<@ ... @>` tags and have access to HTTP server var
 ## System Requirements
 
 **Original Requirements** (Windows 95/NT era):
+
 - Windows 95 or Windows NT 3.51+
 - 32-bit ODBC drivers
 - CGI 1.1-compatible web server
@@ -82,12 +82,14 @@ slipscript/
 The project includes comprehensive documentation:
 
 **Original Website** ([`docs/website/`](docs/website/)):
+
 - Classic 1994-95 frameset design with screenshots
 - Installation guides (FastTrack, Enterprise, IIS)
 - Interactive tutorials and examples
 - Complete API reference
 
 **BOB Interpreter** ([`docs/bob/`](docs/bob/)):
+
 - Technical architecture documentation
 - Complete source code from DDJ article
 - Virtual machine design and bytecode details
@@ -103,6 +105,7 @@ cd docs/website && python3 -m http.server 8000
 ## Building
 
 **Original Build Environment**:
+
 - Microsoft Visual C++ (Visual Studio 6.0 era)
 - Project files: `slipscript.dsp` (DevStudio Project)
 - Workspace: `slipscript.dsw` (DevStudio Workspace)
@@ -113,10 +116,12 @@ The compiled output is a Windows DLL (`slipscript.dll`) that acts as a CGI execu
 
 SlipScript represents an important piece of web development history:
 
-- **Early SSI Alternative**: Pre-dates widespread PHP adoption
-- **Windows CGI Era**: Designed for Windows-based web hosting
-- **1994-1995 Technology**: Contemporary with early Apache, IIS, and Netscape servers
-- **Embedded Syntax**: Similar approach to later technologies (ASP, JSP, PHP)
+- **Pioneer of Dynamic Web**: One of the first server-side scripting engines (1994-1995)
+- **Foundation for Chili!ASP**: Evolved into the first cross-platform ASP engine
+- **Award-Winning Technology**: Chili!ASP won Best of Byte at PC Expo 1997
+- **Commercial Success**: Acquired by Cobalt Networks ($28M), then Sun Microsystems ($2B)
+- **Embedded Syntax Pioneer**: Established `<@ ... @>` approach later adopted by ASP, JSP, PHP
+- **Cross-Platform Vision**: Proved ASP could run on Linux, Solaris, AIX, HP-UX beyond Windows/IIS
 
 ## Modern Context
 
@@ -133,8 +138,8 @@ See repository for license information.
 
 ## Authors
 
-**SlipScript Implementation**: David Weaver (1994-1995)
-**BOB Interpreter**: David Michael Betz (1994)
+**SlipScript Implementation**: Dave Weaver (1994-1995, Penn State University)
+**BOB Interpreter**: David Michael Betz (1994, Dr. Dobb's Journal)
 
 ## Archive Notice
 
